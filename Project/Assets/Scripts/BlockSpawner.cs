@@ -10,6 +10,7 @@ using UnityEngine;
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
+    //some array of locations
     public bool stop = false;
     public float beat = 1; //equals 60/bpm;
 
@@ -20,7 +21,8 @@ public class BlockSpawner : MonoBehaviour
 
     public void SpawnBlock()
     {
-    	Instantiate(block, transform.position, transform.rotation);
+    	//instantiate with a random index for position
+        Instantiate(block, transform.position, transform.rotation);
     	if (stop)
     	{
     		CancelInvoke("SpawnBlock");

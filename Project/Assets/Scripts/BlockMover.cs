@@ -11,6 +11,6 @@ public class BlockMover : MonoBehaviour
     void Update()
     {
     	//the blocks move forward, in the positive z direction
-        transform.position += Vector3.forward * Time.deltaTime * speed;
+        transform.position += Vector3.back * Time.deltaTime * speed;
     }
 }
