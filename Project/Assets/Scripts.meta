@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Project/Assets/Scripts.meta
 guid: c0b3120c0030b564f82e2f0e3585fc92
 folderAsset: yes
 DefaultImporter:
+=======
+guid: c783f78db2480403ba2c7317b2d7435f
+PrefabImporter:
+>>>>>>> 23594532e694c1eb41203b44839688c266c390cd:Project/Assets/Materials/cube copy/beatsabercube 1.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
