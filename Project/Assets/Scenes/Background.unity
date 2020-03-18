@@ -344,17 +344,17 @@ PrefabInstance:
     - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.75
+      value: -1.09
       objectReference: {fileID: 0}
     - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.12
+      value: 2.49
       objectReference: {fileID: 0}
     - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -192.22
+      value: -191.29
       objectReference: {fileID: 0}
     - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
         type: 3}
@@ -396,6 +396,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 78.034004
       objectReference: {fileID: 0}
+    - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7121376251767225804, guid: c783f78db2480403ba2c7317b2d7435f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c783f78db2480403ba2c7317b2d7435f, type: 3}
 --- !u!1 &469859425
@@ -426,7 +441,7 @@ MeshCollider:
   m_GameObject: {fileID: 469859425}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -960,7 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42716fb35cb614d23b7f6a78e0a2c293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Slices: {fileID: 918412609200745333, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
+  Slices: {fileID: 2460982513608418481, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
 --- !u!65 &887559932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1066,7 +1081,7 @@ BoxCollider:
   m_GameObject: {fileID: 1226895904}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1796,6 +1811,11 @@ PrefabInstance:
     - target: {fileID: 4740969259302789181, guid: 608d84deffe664eb6aa28d7d41d116c0,
         type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740969259302789182, guid: 608d84deffe664eb6aa28d7d41d116c0,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4740969259423079138, guid: 608d84deffe664eb6aa28d7d41d116c0,
@@ -1928,7 +1948,7 @@ MeshCollider:
   m_GameObject: {fileID: 2103886751}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
