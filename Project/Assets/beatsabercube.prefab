@@ -1,4 +1,21 @@
-%YAML 1.1
+Questions: 
+- Tell us about your overall quarantine experience
+- Worst parts about quarantine 
+- How have you been staying connected to friends?
+- What do you miss the most about “normal” life?
+- What is your normal schedule like at home?
+- Do you have any funny stories from zoom meetings / being at home
+- favorite thing you have cooked / baked / eaten
+- Message to your future self
+
+Video/Clip ideas
+- Videos of new things you have tried
+- How you have been staying connected (zoom clips, etc)
+- Meals (and cooking!
+- Show your family 
+- Show your pets
+- Homework / desk set up
+- Exercise / sports at home%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &6932654910627013917
 GameObject:
@@ -94,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9c64bb30fea10498619880af2cbab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
---- !u!54 &6932654910627013888
+  speed: 10
+--- !u!54 &7253002971223446250
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
