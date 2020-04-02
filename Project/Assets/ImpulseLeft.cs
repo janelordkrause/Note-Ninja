@@ -15,6 +15,8 @@ public class ImpulseLeft : MonoBehaviour
         rb.AddForce(Vector3.left * 3, ForceMode.Impulse); //adds force on cubes
         rb.AddForce(Vector3.up * 3, ForceMode.Impulse); //adds force on cubes
         rb.AddForce(Vector3.back, ForceMode.Impulse); //adds force on cubes
+
+        //Can't tell if this is working...
         Invoke("destroyGameObject", 10); //destroys slice after 10 seconds 
     }
 
