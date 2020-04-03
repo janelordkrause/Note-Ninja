@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Saber
   - Block
+  - right
+  - left
+  - up
+  - down
   layers:
   - Default
   - TransparentFX
