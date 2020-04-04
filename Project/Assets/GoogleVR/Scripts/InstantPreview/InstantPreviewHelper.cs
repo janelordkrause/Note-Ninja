@@ -35,7 +35,7 @@ public class InstantPreviewHelper : MonoBehaviour
     /// <summary>Path to `aapt` executable.</summary>
     public static string aaptPath;
 
-#if UNITY_ANDROID && UNITY_EDITOR
+#if UNITY_ANDROID && UNITY_EDITOR && false
 
 #if UNITY_WINDOWS
     private const string CHECK_ANDROID_SDK_PATH =
