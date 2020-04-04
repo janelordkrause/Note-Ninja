@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Saber
+  - Block
+  - right
+  - left
+  - up
+  - down
   layers:
   - Default
   - TransparentFX
