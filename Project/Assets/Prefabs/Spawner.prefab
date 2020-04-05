@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca8b6fea0976a942a63a3c32b0b889e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: {fileID: 6932654910627013917, guid: f204c4b1b7ec64018aeb3bae42bcd876, type: 3}
-  stop: 0
+  block: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876, type: 3}
+  start: 0
   beat: 1

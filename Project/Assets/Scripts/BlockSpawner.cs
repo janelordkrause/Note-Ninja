@@ -19,8 +19,8 @@ public class BlockSpawner : MonoBehaviour
     private static string[] X_TAGS = {"left", "up", "right", "down"}; //corresponding slice direction
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
-    public bool stop = false;
-    public float beat = 1; //equals 60/bpm;
+    public bool start;
+    public float beat = 1.53f; //equals 92/bpm;
     
     void Start()
     {
@@ -29,16 +29,19 @@ public class BlockSpawner : MonoBehaviour
 
     IEnumerator SpawnBlock()
     {
-    	while (!stop)
-    	{
-    		float xPos = Random.Range(MIN_X, MAX_X);
-    		float yPos = Random.Range(MIN_Y, MAX_Y);
-    		Vector3 position = new Vector3(xPos, yPos, transform.position.z);
-    		int angleIndex = Random.Range(0, 4); //never chooses the top num (glitch?)
-    		Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
-            block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
-    		Instantiate(block, position, Quaternion.Euler(rotation));
-    		yield return new WaitForSeconds(beat);
-    	}
+    	if (!start)
+        {
+            while(true)
+            {
+        		float xPos = Random.Range(MIN_X, MAX_X);
+        		float yPos = Random.Range(MIN_Y, MAX_Y);
+        		Vector3 position = new Vector3(xPos, yPos, transform.position.z);
+        		int angleIndex = Random.Range(0, 4); //never chooses the top num (glitch?)
+        		Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
+                block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
+        		Instantiate(block, position, Quaternion.Euler(rotation));
+        		yield return new WaitForSeconds(beat);
+            }
+        }   
     }
 }
