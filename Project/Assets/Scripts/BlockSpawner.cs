@@ -22,7 +22,10 @@ public class BlockSpawner : MonoBehaviour
     public float beat; 
     public bool startPlaying = false;
     public AudioSource music;
-    public bool hasChecked;
+    private bool startSpawn;
+    private bool songLength;
+    private Coroutine spawns;
+
     
     void Start()
     {
@@ -30,13 +33,19 @@ public class BlockSpawner : MonoBehaviour
     }
     void Update()
     {
-        if (hasChecked == false)
+        if (startSpawn == false)
         {
             if (startPlaying == true)
             {
-                StartCoroutine(SpawnBlock());
-                hasChecked = true;
+                spawns = StartCoroutine(SpawnBlock());
+                startSpawn = true;
             }
+        }
+        if (music.isPlaying == false && startSpawn == true)
+        {
+            StopCoroutine(spawns);
+            music.Stop();
+            Debug.Log("end");
         }
     }
     IEnumerator SpawnBlock()
