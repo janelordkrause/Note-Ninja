@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -280,7 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   play: 0
-  spawn: {fileID: 609375912}
+  block: {fileID: 0}
+  spawn: {fileID: 0}
 --- !u!4 &332985444
 Transform:
   m_ObjectHideFlags: 0
@@ -293,7 +294,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &398077730
 PrefabInstance:
@@ -677,6 +678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BlockSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7326928597125759429, guid: f6d4d89182c4a9145b5ffa7e7feef5c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: blockspawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d4d89182c4a9145b5ffa7e7feef5c3, type: 3}
@@ -1268,7 +1274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1591293610
 PrefabInstance:

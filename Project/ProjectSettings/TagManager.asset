@@ -11,6 +11,7 @@ TagManager:
   - up
   - down
   - world
+  - blockspawner
   layers:
   - Default
   - TransparentFX

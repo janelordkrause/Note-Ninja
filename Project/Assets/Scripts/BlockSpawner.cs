@@ -20,7 +20,7 @@ public class BlockSpawner : MonoBehaviour
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
     public float beat; 
-    public bool startPlaying = false;
+    public bool startPlaying;
     public AudioSource music;
     private bool startSpawn;
     private bool songLength;
@@ -30,6 +30,7 @@ public class BlockSpawner : MonoBehaviour
     void Start()
     {
         beat = 60f/beat;
+        startPlaying = false;
     }
     void Update()
     {
