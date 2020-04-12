@@ -10,6 +10,7 @@ TagManager:
   - left
   - up
   - down
+  - world
   layers:
   - Default
   - TransparentFX

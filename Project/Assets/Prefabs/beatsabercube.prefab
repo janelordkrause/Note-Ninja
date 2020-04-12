@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 41878289046472540}
   m_Layer: 0
   m_Name: beatsabercube
-  m_TagString: down
+  m_TagString: up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 64
@@ -122,6 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Slices: {fileID: 2460982513608418481, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
   saber: {fileID: 0}
+  world: {fileID: 0}
+  lightScript: {fileID: 0}
 --- !u!54 &41878289046472540
 Rigidbody:
   m_ObjectHideFlags: 0
