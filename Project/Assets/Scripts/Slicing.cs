@@ -9,12 +9,16 @@ public class Slicing : MonoBehaviour
 
     public GameObject saber;
     private SaberSplit saberSplit;
+    public GameObject world; //to be used for lighting effects
+    public Lighting lightScript;
 
     //always called before start function
     void Awake()
     {
         saber = GameObject.FindGameObjectWithTag("Saber"); 
         saberSplit = saber.GetComponent<SaberSplit>(); //connects to script with info about saber movements
+        world = GameObject.FindGameObjectWithTag("world");
+        lightScript = world.GetComponent<Lighting>();
     }
 
     void Start()
@@ -33,6 +37,7 @@ public class Slicing : MonoBehaviour
             {
                 Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 Destroy(gameObject); //destroys normal cube
+                lightScript.changeBackground();
             }
         }
     }
