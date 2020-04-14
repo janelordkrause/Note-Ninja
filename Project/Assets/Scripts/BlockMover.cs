@@ -6,6 +6,10 @@ public class BlockMover : MonoBehaviour
 {
 	[SerializeField]
 	private int speed = 1;
+	void Start()
+	{
+		
+	}
 
     // Update is called once per frame
     void Update()
