@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System; 
+using System.IO;
 
 /*this code is adapted from www.youtube.com/watch?v=1h2yStilBWU,
 www.youtube.com/watch?v=ydjpNNA5804*/
@@ -26,12 +28,17 @@ public class BlockSpawner : MonoBehaviour
     private bool songLength;
     private Coroutine spawns;
 
+    private string songFileLine;
+    private StreamReader reader;
     
     void Start()
     {
         beat = 60f/beat;
         startPlaying = false;
+
+        reader = new StreamReader("Assets/Resources/sampleSong.txt");
     }
+
     void Update()
     {
         if (startSpawn == false)
@@ -46,20 +53,24 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
-            Debug.Log("end");
+            //Debug.Log("end");
         }
     }
     IEnumerator SpawnBlock()
     {
             music.Play();
-            while (true)
+            //sourcehttps://www.dotnetperls.com/readline
+            while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
             {
-                float xPos = Random.Range(MIN_X, MAX_X);
-                float yPos = Random.Range(MIN_Y, MAX_Y);
-                Vector3 position = new Vector3(xPos, yPos, transform.position.z);
-                int angleIndex = Random.Range(0, 4); //never chooses the top num (glitch?)
+                int angleIndex = Array.IndexOf(X_TAGS, songFileLine);
                 Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
                 block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
+
+                float xPos = UnityEngine.Random.Range(MIN_X, MAX_X);
+                float yPos = UnityEngine.Random.Range(MIN_Y, MAX_Y);
+                Vector3 position = new Vector3(xPos, yPos, transform.position.z);
+                //int angleIndex = UnityEngine.Random.Range(0, 4); //never chooses the top num (glitch?)
+
                 Instantiate(block, position, Quaternion.Euler(rotation));
                 yield return new WaitForSeconds(beat);
             }
