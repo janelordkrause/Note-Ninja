@@ -14,9 +14,9 @@ public class BlockSpawner : MonoBehaviour
     private static float MIN_X = -2.0f;
     private static float MAX_X = 2.0f;
     private static float MIN_Y = 1.5f;
-    private static float MAX_Y = 3.0f;
+    private static float MAX_Y = 3.8f;
     private static int[] X_ROTATIONS = {0, 90, 180, 270}; //angles to rotate blocks
-    private static string[] X_TAGS = {"left", "up", "right", "down"}; //corresponding slice direction
+    private static string[] X_TAGS = {"left" , "up", "right", "down"}; //corresponding slice direction
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
     public float beat; 
