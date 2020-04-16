@@ -57,20 +57,6 @@ public class BlockSpawner : MonoBehaviour
     }
     IEnumerator SpawnBlock()
     {
-<<<<<<< HEAD
-    	music.Play();
-    	while (true)
-    	{
-	        float xPos = Random.Range(MIN_X, MAX_X);
-	        float yPos = Random.Range(MIN_Y, MAX_Y);
-	        Vector3 position = new Vector3(xPos, yPos, transform.position.z);
-	        int angleIndex = Random.Range(0, 4); //never chooses the top num (glitch?)
-	        Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
-	        block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
-	        Instantiate(block, position, Quaternion.Euler(rotation));
-	        yield return new WaitForSeconds(beat);
-	    }
-=======
             music.Play();
             //sourcehttps://www.dotnetperls.com/readline
             while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
@@ -87,8 +73,5 @@ public class BlockSpawner : MonoBehaviour
                 Instantiate(block, position, Quaternion.Euler(rotation));
                 yield return new WaitForSeconds(beat);
             }
-        
-        
->>>>>>> db9a73fa00b11571694b7f5efdfe5d0a90aad8cc
     }
 }
