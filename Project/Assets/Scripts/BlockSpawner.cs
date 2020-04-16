@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /*this code is adapted from www.youtube.com/watch?v=1h2yStilBWU,
 www.youtube.com/watch?v=ydjpNNA5804*/
@@ -45,7 +46,7 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
-            Debug.Log("end");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
     IEnumerator SpawnBlock()
