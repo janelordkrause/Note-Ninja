@@ -61,17 +61,22 @@ public class BlockSpawner : MonoBehaviour
             //sourcehttps://www.dotnetperls.com/readline
             while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
             {
-                int angleIndex = Array.IndexOf(X_TAGS, songFileLine);
+                string[] blockInfo = songFileLine.Split(' '); //puts the info in the line into an array
+
+                int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
                 Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
                 block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
-
-                float xPos = UnityEngine.Random.Range(MIN_X, MAX_X);
-                float yPos = UnityEngine.Random.Range(MIN_Y, MAX_Y);
+                
+                float xPos = float.Parse(blockInfo[1]); //x position is the second thing in the array
+                float yPos = float.Parse(blockInfo[2]);
                 Vector3 position = new Vector3(xPos, yPos, transform.position.z);
                 //int angleIndex = UnityEngine.Random.Range(0, 4); //never chooses the top num (glitch?)
-
+                //float xPos = UnityEngine.Random.Range(MIN_X, MAX_X);
+                //float yPos = UnityEngine.Random.Range(MIN_Y, MAX_Y);
                 Instantiate(block, position, Quaternion.Euler(rotation));
-                yield return new WaitForSeconds(beat);
+
+                float wait = float.Parse(blockInfo[3]); //multiplier for wait time between blocks
+                yield return new WaitForSeconds(beat * wait);
             }
     }
 }
