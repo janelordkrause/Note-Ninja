@@ -19,11 +19,7 @@ public class GameManage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 		
- 			if (Input.anyKeyDown)
- 			{
- 				play = true;
- 				spawn.startPlaying = true;
- 			}
+ 		play = true;
+ 		spawn.startPlaying = true;
     }
 }
