@@ -1,16 +1,26 @@
-left
-right
-left
-right
-left
-right
-up
-down
-up
-down
-right
-right
-left
-left
-up
-down
+down 0 2.5 2
+left -2 2.5 1
+right 2 2.5 1
+down 0 1.6 2
+up 0 3.5 1
+down 0 2 1
+up 0 3.5 2
+right 2 1.6 1
+left -2 1.6 1
+up 0 3 2
+down 0 1.6 1
+right 1 3.5 1
+right -1 2.5 2
+down -1 2 1
+left 0 2 1
+left 1 2 2
+up 1.5 3.8 1
+up -1.5 3.8 1
+down 0 1.6 2
+left 0 3.8 1
+right 0 3.0 1
+left 0 2.2 1
+right 0 1.5 1
+left -2 2.5 1
+right 1 2.5 1
+down 0 2.5 2
