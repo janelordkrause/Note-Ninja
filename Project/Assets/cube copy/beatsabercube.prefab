@@ -124,6 +124,7 @@ MonoBehaviour:
   saber: {fileID: 0}
   world: {fileID: 0}
   lightScript: {fileID: 0}
+  head: {fileID: 0}
 --- !u!54 &8861731681195916041
 Rigidbody:
   m_ObjectHideFlags: 0

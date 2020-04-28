@@ -22,31 +22,29 @@ public class BlockSpawner : MonoBehaviour
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
     public float beat; 
-    public bool startPlaying;
     public AudioSource music;
     private bool startSpawn;
     private bool songLength;
     private Coroutine spawns;
     private string songFileLine;
-    private StreamReader reader;
+    private StringReader reader;
+
+    public TextAsset txt;
     
     void Start()
     {
         beat = 60f/beat;
-        startPlaying = false;
 
-        reader = new StreamReader("Assets/Resources/sampleSong.txt");
+        string song = txt.ToString(); //converts txt file into string
+        reader = new StringReader(song);
     }
 
     void Update()
     {
         if (startSpawn == false)
         {
-            if (startPlaying == true)
-            {
-                spawns = StartCoroutine(SpawnBlock());
-                startSpawn = true;
-            }
+            spawns = StartCoroutine(SpawnBlock());
+            startSpawn = true;
         }
         if (music.isPlaying == false && startSpawn == true)
         {
