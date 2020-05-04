@@ -13,10 +13,10 @@ www.youtube.com/watch?v=1h2yStilBWU, www.youtube.com/watch?v=ydjpNNA5804*/
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
-    private static float MIN_X = -2.0f;
-    private static float MAX_X = 2.0f;
-    private static float MIN_Y = 1.5f;
-    private static float MAX_Y = 3.8f;
+    //private static float MIN_X = -2.0f;
+    //private static float MAX_X = 2.0f;
+    //private static float MIN_Y = 1.5f;
+    //private static float MAX_Y = 3.8f;
     private static int[] X_ROTATIONS = {0, 90, 180, 270}; //angles to rotate blocks
     private static string[] X_TAGS = {"left" , "up", "right", "down"}; //corresponding slice direction
     private static int Y_ROTATION = 90;
@@ -25,36 +25,53 @@ public class BlockSpawner : MonoBehaviour
     public AudioSource music;
     private bool startSpawn;
     private bool songLength;
+    private int beatsBeforeStart; //beats of the song before blocks start spawning
     private Coroutine spawns;
     private string songFileLine;
-    private StreamReader reader;
+    private StringReader reader;
+
+    public TextAsset txt;
     
     void Start()
     {
         beat = 60f/beat;
+        string song = txt.ToString(); //converts txt file into string
+        reader = new StringReader(song);
 
-        //reader = new StreamReader("Assets/Resources/sampleSong.txt");
-        reader = new StreamReader("Assets/Resources/testRotation.txt");
+        beatsBeforeStart = Int32.Parse(reader.ReadLine()); //first line contains only one number
     }
 
     void Update()
     {
-        if (startSpawn == false)
+        if (startSpawn == false) //if spawning hasn't started yet
         {
-            spawns = StartCoroutine(SpawnBlock());
+			music.Play();
+
+            //calculate what the delay between music and block spawn should be
+            int blockSpeed = BlockMover.speed; //get speed of block from moving script
+    		float distance = transform.position.z; //distance blocks travel to get to player
+    		float travelTime = distance/blockSpeed; //time it takes for block to travel from spawner to player
+            float delayTime = (beat*beatsBeforeStart) - travelTime; //so the block arrives at the right time
+            //add some error catching for if delay time is negative
+            spawns = StartCoroutine(SpawnBlock(delayTime));
+
             startSpawn = true;
         }
-        if (music.isPlaying == false && startSpawn == true)
+        if (music.isPlaying == false && startSpawn == true) //if music ended
         {
             StopCoroutine(spawns);
             music.Stop();
             //Debug.Log("end");
         }
     }
-    IEnumerator SpawnBlock()
+
+
+    IEnumerator SpawnBlock(float initialDelay)
     {
-            music.Play();
             //sourcehttps://www.dotnetperls.com/readline
+            
+            yield return new WaitForSeconds(initialDelay);
+
             while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
             {
                 string[] blockInfo = songFileLine.Split(' '); //puts the info in the line into an array

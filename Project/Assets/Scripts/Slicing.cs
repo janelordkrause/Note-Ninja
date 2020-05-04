@@ -12,6 +12,8 @@ public class Slicing : MonoBehaviour
     public GameObject world; //to be used for lighting effects
     public Lighting lightScript;
 
+    public GameObject head;
+
     //always called before start function
     void Awake()
     {
@@ -19,11 +21,19 @@ public class Slicing : MonoBehaviour
         saberSplit = saber.GetComponent<SaberSplit>(); //connects to script with info about saber movements
         world = GameObject.FindGameObjectWithTag("world");
         lightScript = world.GetComponent<Lighting>();
+
+        head = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Start()
     {
         Invoke("destroyGameObject", 20); //destroys unhit blocks after 20 seconds
+        //Debug.Log(head.transform.position);
+    }
+
+    void Update()
+    {
+        //Debug.Log(head.transform.position);
     }
 
     //called when block is hit
