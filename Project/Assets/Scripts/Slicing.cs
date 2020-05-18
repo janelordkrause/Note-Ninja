@@ -14,8 +14,10 @@ public class Slicing : MonoBehaviour
 
     public GameObject head;
 
+
     public GameObject spawn;
     public BlockSpawner spawnScript;
+
 
     //always called before start function
     void Awake()
@@ -29,6 +31,7 @@ public class Slicing : MonoBehaviour
 
         spawn = GameObject.Find("BlockSpawner");
         spawnScript = spawn.GetComponent<BlockSpawner>();
+
     }
 
     void Start()
