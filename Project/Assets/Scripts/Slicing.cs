@@ -22,13 +22,13 @@ public class Slicing : MonoBehaviour
         world = GameObject.FindGameObjectWithTag("world");
         lightScript = world.GetComponent<Lighting>();
 
-        head = GameObject.FindGameObjectWithTag("MainCamera");
+        //head = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Start()
     {
         Invoke("destroyGameObject", 20); //destroys unhit blocks after 20 seconds
-        Debug.Log(head.transform.position);
+        //Debug.Log(head.transform.position);
     }
 
     void Update()
