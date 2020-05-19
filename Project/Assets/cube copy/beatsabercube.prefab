@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8861731681195916041}
   m_Layer: 0
   m_Name: beatsabercube
-  m_TagString: down
+  m_TagString: up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 64

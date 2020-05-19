@@ -31,8 +31,10 @@ public class BlockSpawner : MonoBehaviour
     private Coroutine spawns;
     private string songFileLine;
 
-    private StreamReader reader;
+
+    private StringReader reader;
     public TextAsset txt;
+
 
     public int score;
     private int pointsPerHit;
@@ -40,16 +42,19 @@ public class BlockSpawner : MonoBehaviour
     public bool wasHit;
     public int misses;
 
+
     
     void Start()
     {
         beat = 60f/beat;
-        string song = txt.ToString();
-
-        reader = new StringReader(song);
+        
 
         health = 50;
         pointsPerHit = 100;
+
+
+        string song = txt.ToString(); //converts txt file into string
+        reader = new StringReader(song);
 
     }
 
