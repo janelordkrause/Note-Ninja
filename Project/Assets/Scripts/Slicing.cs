@@ -14,6 +14,11 @@ public class Slicing : MonoBehaviour
 
     public GameObject head;
 
+
+    public GameObject spawn;
+    public BlockSpawner spawnScript;
+
+
     //always called before start function
     void Awake()
     {
@@ -23,6 +28,11 @@ public class Slicing : MonoBehaviour
         lightScript = world.GetComponent<Lighting>();
 
         //head = GameObject.FindGameObjectWithTag("MainCamera");
+        head = GameObject.FindGameObjectWithTag("MainCamera");
+
+
+        spawn = GameObject.Find("BlockSpawner");
+        spawnScript = spawn.GetComponent<BlockSpawner>();
     }
 
     void Start()
@@ -48,6 +58,15 @@ public class Slicing : MonoBehaviour
                 Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 Destroy(gameObject); //destroys normal cube
                 lightScript.changeBackground();
+
+                spawnScript.Hit();
+            }
+        }
+        if (hit.tag == "MissBox")
+        {
+            if (spawnScript.wasHit==false)
+            {
+                spawnScript.Miss();
             }
         }
     }
