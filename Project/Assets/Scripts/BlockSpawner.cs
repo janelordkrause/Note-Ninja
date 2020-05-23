@@ -16,12 +16,13 @@ using System.IO;
 public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
+    public GameObject wall;
     //private static float MIN_X = -2.0f;
     //private static float MAX_X = 2.0f;
     //private static float MIN_Y = 1.5f;
     //private static float MAX_Y = 3.8f;
-    private static int[] X_ROTATIONS = {0, 90, 180, 270}; //angles to rotate blocks
-    private static string[] X_TAGS = {"left" , "up", "right", "down"}; //corresponding slice direction
+    private static int[] X_ROTATIONS = {0, 90, 180, 270, 45, 135, 225, 315}; //angles to rotate blocks
+    private static string[] X_TAGS = {"left" , "up", "right", "down", "leftup", "rightup", "rightdown", "leftdown"}; //corresponding slice direction
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
     public float beat; 
@@ -69,7 +70,8 @@ public class BlockSpawner : MonoBehaviour
     		float travelTime = distance/blockSpeed; //time it takes for block to travel from spawner to player
             float delayTime = (beat*beatsBeforeStart) - travelTime; //so the block arrives at the right time
             //add some error catching for if delay time is negative
-            spawns = StartCoroutine(SpawnBlock(delayTime));
+            if (delayTime < 0) Debug.Log("wait time too short");
+            else spawns = StartCoroutine(SpawnBlock(delayTime));
 
             startSpawn = true;
         }
@@ -93,7 +95,34 @@ public class BlockSpawner : MonoBehaviour
 
                 string[] blockInfo = songFileLine.Split(' '); //puts the info in the line into an array
 
-                int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
+                //every line will have position info
+                float xPos = float.Parse(blockInfo[1]); //x position is the second thing in the array
+                float yPos = float.Parse(blockInfo[2]); //y position is the third
+                Vector3 position = new Vector3(xPos, yPos, transform.position.z);
+
+                //if it's a wall, it will say so, and it will contain info about size
+                if (blockInfo[0] == "wall")
+                {
+                    float xScale = float.Parse(blockInfo[4]);
+                    float yScale = float.Parse(blockInfo[5]);
+                    float zScale = float.Parse(blockInfo[6]);
+
+                    //source for how to instatiate with size: answers.unity.com/questions/1578968/how-do-i-instantiate-a-prefab-with-scale.html
+                    GameObject go = Instantiate(wall, position, transform.rotation); //has default rotation
+                    go.transform.localScale = new Vector3(xScale, yScale, zScale);
+                }
+                //if it's not a wall, it is a block and it has rotation info as well
+                else
+                {
+                    int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
+                    Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
+                    block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
+                    
+                    Instantiate(block, position, Quaternion.Euler(rotation));
+                }
+
+
+                /*int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
 
                 Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
                 block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
@@ -101,7 +130,7 @@ public class BlockSpawner : MonoBehaviour
                 float xPos = float.Parse(blockInfo[1]); //x position is the second thing in the array
                 float yPos = float.Parse(blockInfo[2]);
                 Vector3 position = new Vector3(xPos, yPos, transform.position.z);
-                Instantiate(block, position, Quaternion.Euler(rotation));
+                Instantiate(block, position, Quaternion.Euler(rotation));*/
 
 
                 float wait = float.Parse(blockInfo[3]); //multiplier for wait time between blocks

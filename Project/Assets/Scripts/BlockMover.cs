@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class BlockMover : MonoBehaviour
 {
-	public static int speed = 20;
-	void Start()
-	{
-		
-	}
+
+    public static int speed = 20;
 
     // Update is called once per frame
     void Update()

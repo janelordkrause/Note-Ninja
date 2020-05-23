@@ -98,6 +98,22 @@ public class Slicing : MonoBehaviour
         {
             return true;
         }
+        else if (gameObject.tag == "rightdown" && velocity.x > 0 && velocity.y < 0 && Math.Abs(velocity.x + velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "leftdown" && velocity.x < 0 && velocity.y < 0 && Math.Abs(velocity.x - velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "rightup" && velocity.x > 0 && velocity.y > 0 && Math.Abs(velocity.x - velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "leftup" && velocity.x < 0 && velocity.y > 0 && Math.Abs(velocity.x + velocity.y) < 1)
+        {
+            return true;
+        }
         else
         {
             return false; 
