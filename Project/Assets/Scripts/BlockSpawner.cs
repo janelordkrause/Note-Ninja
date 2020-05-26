@@ -17,6 +17,8 @@ public class BlockSpawner : MonoBehaviour
 {
     public GameObject block;
     public GameObject wall;
+    public GameObject bomb;
+
     //private static float MIN_X = -2.0f;
     //private static float MAX_X = 2.0f;
     //private static float MIN_Y = 1.5f;
@@ -111,7 +113,12 @@ public class BlockSpawner : MonoBehaviour
                     GameObject go = Instantiate(wall, position, transform.rotation); //has default rotation
                     go.transform.localScale = new Vector3(xScale, yScale, zScale);
                 }
-                //if it's not a wall, it is a block and it has rotation info as well
+                else if (blockInfo[0] == "bomb")
+                {
+                    Instantiate(bomb, position, transform.rotation);
+                }
+                
+                //if it's not a wall or bomb, it is a block and it has rotation info as well
                 else
                 {
                     int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
