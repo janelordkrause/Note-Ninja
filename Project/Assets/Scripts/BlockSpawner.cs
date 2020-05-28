@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 using System; 
 using System.IO;
@@ -173,6 +173,7 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
+            SceneManager.LoadScene(1);
         }
         else
         {
