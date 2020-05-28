@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System; //for Math
+using UnityEngine.SceneManagement;
 
 public class Slicing : MonoBehaviour
 {
@@ -69,6 +70,7 @@ public class Slicing : MonoBehaviour
                 spawnScript.Miss();
             }
         }
+
     }
 
     void destroyGameObject()

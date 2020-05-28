@@ -163,7 +163,7 @@ public class BlockSpawner : MonoBehaviour
         score+=pointsPerHit;
         if (health != 100)
         {
-            double hithealth = health*1.02;
+            double hithealth = health*1.1;
             health=(int) hithealth;
         }
     }
