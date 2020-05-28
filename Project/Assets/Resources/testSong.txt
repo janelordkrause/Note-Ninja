@@ -1,6 +1,6 @@
 6
-rightup 0 2 2
-rightup 0 2 2
+left -1 2 0
+right 1 2 2
 leftup 0 2 2
 leftup 0 2 2
 rightdown 0 2 2
