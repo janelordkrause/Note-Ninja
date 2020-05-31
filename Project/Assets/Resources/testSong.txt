@@ -1,0 +1,9 @@
+6
+rightup 0 2 2
+rightup 0 2 2
+leftup 0 2 2
+leftup 0 2 2
+rightdown 0 2 2
+rightdown 0 2 2
+leftdown 0 2 2
+leftdown 0 2 2

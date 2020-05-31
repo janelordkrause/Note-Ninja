@@ -14,6 +14,13 @@ TagManager:
   - blockspawner
   - SongMenu
   - Background Update
+  - Wall
+  - MissBox
+  - scoreText
+  - leftdown
+  - rightdown
+  - leftup
+  - rightup
   layers:
   - Default
   - TransparentFX
@@ -50,4 +57,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 1415453973
     locked: 0

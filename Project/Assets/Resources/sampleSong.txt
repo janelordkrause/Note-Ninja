@@ -1,26 +1,28 @@
-down 0 2.5 2
-left -2 2.5 1
-right 2 2.5 1
+6
+wall 0 3.5 2 2.5 0.5 10
+rightdown -1 2.5 1
+leftdown 1 2.5 1
 down 0 1.6 2
 up 0 3.5 1
 down 0 2 1
 up 0 3.5 2
-right 2 1.6 1
-left -2 1.6 1
+wall 0.5 4 1 0.5 4 10
+wall -0.5 4 1 0.5 4 10
 up 0 3 2
 down 0 1.6 1
-right 1 3.5 1
+bomb 1 2.5 1
 right -1 2.5 2
 down -1 2 1
 left 0 2 1
 left 1 2 2
-up 1.5 3.8 1
-up -1.5 3.8 1
+rightup 1.5 3.5 1
+leftup -1.5 3.5 1
 down 0 1.6 2
-left 0 3.8 1
+bomb 1 1 1
 right 0 3.0 1
 left 0 2.2 1
 right 0 1.5 1
 left -2 2.5 1
 right 1 2.5 1
 down 0 2.5 2
+bomb 0 2.5 2

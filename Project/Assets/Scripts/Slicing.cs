@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System; //for Math
+using UnityEngine.SceneManagement;
 
 public class Slicing : MonoBehaviour
 {
@@ -14,6 +15,11 @@ public class Slicing : MonoBehaviour
 
     public GameObject head;
 
+
+    public GameObject spawn;
+    public BlockSpawner spawnScript;
+
+
     //always called before start function
     void Awake()
     {
@@ -22,13 +28,18 @@ public class Slicing : MonoBehaviour
         world = GameObject.FindGameObjectWithTag("world");
         lightScript = world.GetComponent<Lighting>();
 
+        //head = GameObject.FindGameObjectWithTag("MainCamera");
         head = GameObject.FindGameObjectWithTag("MainCamera");
+
+
+        spawn = GameObject.Find("BlockSpawner");
+        spawnScript = spawn.GetComponent<BlockSpawner>();
     }
 
     void Start()
     {
         Invoke("destroyGameObject", 20); //destroys unhit blocks after 20 seconds
-        Debug.Log(head.transform.position);
+        //Debug.Log(head.transform.position);
     }
 
     void Update()
@@ -48,8 +59,18 @@ public class Slicing : MonoBehaviour
                 Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 Destroy(gameObject); //destroys normal cube
                 lightScript.changeBackground();
+
+                spawnScript.Hit();
             }
         }
+        if (hit.tag == "MissBox")
+        {
+            if (spawnScript.wasHit==false)
+            {
+                spawnScript.Miss();
+            }
+        }
+
     }
 
     void destroyGameObject()
@@ -76,6 +97,22 @@ public class Slicing : MonoBehaviour
             return true;
         }
         else if (gameObject.tag == "right" && velocity.x > 0 && Math.Abs(velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "rightdown" && velocity.x > 0 && velocity.y < 0 && Math.Abs(velocity.x + velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "leftdown" && velocity.x < 0 && velocity.y < 0 && Math.Abs(velocity.x - velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "rightup" && velocity.x > 0 && velocity.y > 0 && Math.Abs(velocity.x - velocity.y) < 1)
+        {
+            return true;
+        }
+        else if (gameObject.tag == "leftup" && velocity.x < 0 && velocity.y > 0 && Math.Abs(velocity.x + velocity.y) < 1)
         {
             return true;
         }

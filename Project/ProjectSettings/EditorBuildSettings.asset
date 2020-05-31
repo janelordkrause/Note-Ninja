@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/Background.unity
-    guid: 3b77fac1edfce48fa99a0fbe9094eb58
+    path: Assets/startmenu.unity
+    guid: 75147200025884e2393eaa38c0dbb86f
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: e4d97d9569003490fa2eacc9f6bc54d6
@@ -17,4 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SongMenu.unity
     guid: fd7184dbf0d9741ae9d168b46e93feac
+    path: Assets/Scenes/YouLose.unity
+    guid: 2f312cde8df7c4588b99d4ce86b5511a
+  - enabled: 1
+    path: Assets/Scenes/YouWin.unity
+    guid: 7168a8c992d2c4bf2ba0c3267ca6fb26
   m_configObjects: {}
