@@ -12,6 +12,8 @@ TagManager:
   - down
   - world
   - blockspawner
+  - SongMenu
+  - Background Update
   layers:
   - Default
   - TransparentFX
