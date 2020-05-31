@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 using System; 
 using System.IO;
@@ -44,7 +44,7 @@ public class BlockSpawner : MonoBehaviour
     private int pointsPerHit;
     public int health;
     public bool wasHit;
-    public int misses;
+
 
 
     
@@ -81,6 +81,8 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
+            PlayerPrefs.SetInt("Score", score);
+            SceneManager.LoadScene(2);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
@@ -163,7 +165,7 @@ public class BlockSpawner : MonoBehaviour
         score+=pointsPerHit;
         if (health != 100)
         {
-            double hithealth = health*1.02;
+            double hithealth = health*1.1;
             health=(int) hithealth;
         }
     }
@@ -173,12 +175,12 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
+            SceneManager.LoadScene(1);
         }
         else
         {
             double misshealth = health*0.70;
             health= (int) misshealth;
-            misses++;
         }
     }
 }

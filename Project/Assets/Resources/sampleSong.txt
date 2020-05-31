@@ -23,7 +23,7 @@ left 2 2.5 2
 rightup 1.5 3.5 1
 leftup -1.5 3.5 1
 down 0 1.6 1
-bomb 1 1 1
+bomb 1 2 1
 left 0 3.8 1
 right 0 3.0 1
 left 0 2.2 1
@@ -31,7 +31,7 @@ right 0 1.5 1
 left -2 2.5 1
 right 1 2.5 1
 down 0 2.5 1
-bomb 1.5 3 0
-bomb -1.5 3 0
+bomb 1.5 3.5 0
+bomb -1.5 3.5 0
 bomb 1.5 1.5 0
 bomb -1.5 1.5 0
