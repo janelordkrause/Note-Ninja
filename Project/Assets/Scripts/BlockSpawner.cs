@@ -256,8 +256,8 @@ public class BlockSpawner : MonoBehaviour
         }
         else
         {
-            // double misshealth = health*0.70;
-            // health= (int) misshealth;
+             double misshealth = health*0.70;
+             health= (int) misshealth;
         }
     }
 }
