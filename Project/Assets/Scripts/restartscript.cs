@@ -56,7 +56,7 @@ Invoke("toGame", 2.0f);
 
     }
     void toGame(){
-SceneManager.LoadScene(0);
+SceneManager.LoadScene(1);
 
  }
 

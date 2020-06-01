@@ -27,42 +27,120 @@ public class BlockSpawner : MonoBehaviour
     private static string[] X_TAGS = {"left" , "up", "right", "down", "leftup", "rightup", "rightdown", "leftdown"}; //corresponding slice direction
     private static int Y_ROTATION = 90;
     private static int Z_ROTATION = 0;
+
+    public GameObject[] songOptions;
     public float beat; 
-    public AudioSource music;
+    private AudioSource music;
     private bool startSpawn;
     private bool songLength;
     private int beatsBeforeStart; //beats of the song before blocks start spawning
     private Coroutine spawns;
     private string songFileLine;
 
-
     private StringReader reader;
     public TextAsset txt;
-
 
     public int score;
     private int pointsPerHit;
     public int health;
     public bool wasHit;
 
-
-
+    public bool songReady;
+    public GameObject entertainer; //gameobjects of songs
+    public GameObject crabrave;
     
     void Start()
     {
-        beat = 60f/beat;
-        string song = txt.ToString(); //converts txt file into string
-        reader = new StringReader(song);
-
-        beatsBeforeStart = Int32.Parse(reader.ReadLine()); //first line contains only one number
+        //where song set up stuff used to go
         
         health = 50;
         pointsPerHit = 100;
+
+        songReady = false;
+
+        music = GetComponent<AudioSource>(); //the spawner has an AudioSource component where we can drop AudioClips
+    }
+
+    void checkForSong()
+    {
+        for (int i = 0; i < songOptions.Length; i++)
+        {
+            string songChoice = songOptions[i].GetComponent<getSong>().nameOfSong;
+            if (songChoice != null)
+            {
+                songReady = true;
+
+                //how to load audio from www.youtube.com/watch?v=Md7siqXr7pM
+                music.clip = Resources.Load<AudioClip>(songChoice + "Music");
+                //how to load text from answers.unity.com/questions/29876/how-can-i-assign-prefab-to-variable-without-drag-d.html
+                txt = Resources.Load<TextAsset>(songChoice + "File");
+
+                //other song set up stuff
+                string song = txt.ToString(); //converts txt file into string
+                reader = new StringReader(song);
+
+                int bpm = Int32.Parse(reader.ReadLine()); //first line contains this info
+                beat = 60f/bpm;
+                beatsBeforeStart = Int32.Parse(reader.ReadLine()); //second line contains this info
+
+                //destroy all song options blocks
+                for (int j = 0; j < songOptions.Length; j++)
+                {
+                    Destroy(songOptions[j]);
+                }
+            }
+        }
+        /*
+        OLD VERSION OF SONG AND FILE CHOOSING
+        if (entertainer.GetComponent<getSong>().nameOfSong != null) //checks to see if user has selected song
+        {
+            music = entertainer.GetComponent<AudioSource>();
+            entertainer.GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child").GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child2").GetComponent<Renderer>().enabled = false;
+            crabrave.GetComponent<Renderer>().enabled = false;
+
+            //next line from answers.unity.com/questions/29876/how-can-i-assign-prefab-to-variable-without-drag-d.html
+            txt = Resources.Load<TextAsset>("theentertainerFile");
+
+            songReady = true;
+            setUpSong();
+
+        }
+        else if (crabrave.GetComponent<getSong>().nameOfSong != null)
+        {
+            music = crabrave.GetComponent<AudioSource>();
+            crabrave.GetComponent<Renderer>().enabled = false;
+            entertainer.GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child").GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child2").GetComponent<Renderer>().enabled = false;
+
+            txt = Resources.Load<TextAsset>("crabraveFile");
+
+            songReady = true;
+            setUpSong();
+        }*/
+    }
+
+    void setUpSong() //don't need this function anymore
+    {
+        //do some song set up stuff after song is chosen
+        string song = txt.ToString(); //converts txt file into string
+        reader = new StringReader(song);
+
+        int bpm = Int32.Parse(reader.ReadLine()); //first line contains this info
+        beat = 60f/bpm;
+        beatsBeforeStart = Int32.Parse(reader.ReadLine()); //second line contains this info
     }
 
     void Update()
     {
-        if (startSpawn == false) //if spawning hasn't started yet
+        if (!songReady)
+        {
+            checkForSong();
+        }
+
+        if (startSpawn == false && songReady == true) //if spawning hasn't started yet
         {
 			music.Play();
 
@@ -77,12 +155,12 @@ public class BlockSpawner : MonoBehaviour
 
             startSpawn = true;
         }
-        if (music.isPlaying == false && startSpawn == true) //if music ended
+        if (startSpawn == true && music.isPlaying == false) //if music ended **has to be in this order or there is an exception
         {
             StopCoroutine(spawns);
             music.Stop();
             PlayerPrefs.SetInt("Score", score);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
@@ -96,7 +174,7 @@ public class BlockSpawner : MonoBehaviour
 
             while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
             {
-
+                Debug.Log(songFileLine);
                 string[] blockInfo = songFileLine.Split(' '); //puts the info in the line into an array
 
                 //every line will have position info
@@ -129,18 +207,6 @@ public class BlockSpawner : MonoBehaviour
                     
                     Instantiate(block, position, Quaternion.Euler(rotation));
                 }
-
-
-                /*int angleIndex = Array.IndexOf(X_TAGS, blockInfo[0]); //direction is the first thing in the array
-
-                Vector3 rotation = new Vector3(X_ROTATIONS[angleIndex], Y_ROTATION, Z_ROTATION);
-                block.gameObject.tag = X_TAGS[angleIndex]; //adds tag of direction they need to be sliced
-                
-                float xPos = float.Parse(blockInfo[1]); //x position is the second thing in the array
-                float yPos = float.Parse(blockInfo[2]);
-                Vector3 position = new Vector3(xPos, yPos, transform.position.z);
-                Instantiate(block, position, Quaternion.Euler(rotation));*/
-
 
                 float wait = float.Parse(blockInfo[3]); //multiplier for wait time between blocks
                 yield return new WaitForSeconds(beat * wait);
@@ -175,7 +241,7 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(4);
         }
         else
         {

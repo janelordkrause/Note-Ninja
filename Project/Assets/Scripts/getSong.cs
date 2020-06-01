@@ -1,12 +1,14 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System; //for Math
 using UnityEngine.SceneManagement; // for switching scenes 
 using System.IO;
 
-public class SlicingMenu : MonoBehaviour
+public class getSong : MonoBehaviour
 {
+	public string nameOfSong;
+
     public GameObject Slices; //prefab of the two cut blocks
 
     public GameObject saber;
@@ -19,6 +21,7 @@ public class SlicingMenu : MonoBehaviour
     //always called before start function
     void Awake()
     {
+    	nameOfSong = null;
         saber = GameObject.FindGameObjectWithTag("Saber"); 
         saberSplit = saber.GetComponent<SaberSplit>(); //connects to script with info about saber movements
         world = GameObject.FindGameObjectWithTag("world");
@@ -29,7 +32,7 @@ public class SlicingMenu : MonoBehaviour
 
     void Start()
     {
-        Invoke("destroyGameObject", 20); //destroys unhit blocks after 20 seconds
+        //Invoke("destroyGameObject", 20); //destroys unhit blocks after 20 seconds
         Debug.Log(head.transform.position);
     }
 
@@ -47,31 +50,13 @@ public class SlicingMenu : MonoBehaviour
             //Debug.Log(saberSplit.rightDirection);
             if (checkBlockDirection() == true) //checks to make sure saber is moving in the right direction before actually cutting 
             {
-                Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
+                //Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 //lightScript.changeBackground();
-                Destroy(gameObject); //destroys normal cube
-                tryScene();
+                nameOfSong = gameObject.tag;
                 //Destroy(gameObject); //destroys normal cube
 
             }
         }
-    }
-
-    void tryScene()
-    {
-        Debug.Log("Hello");
-        tag = gameObject.tag; 
-                
-                try {
-                    //Invoke("loadScene", 2);
-                    SceneManager.LoadScene(tag);
-                } catch (FileNotFoundException e) {
-                    #if UNITY_EDITOR
-                        UnityEditor.EditorApplication.isPlaying = false; 
-                    #else 
-                        Application.Quit();
-                    #endif
-                }
     }
 
     void destroyGameObject()

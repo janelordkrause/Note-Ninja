@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 3733362587743186930}
   - component: {fileID: 3733362587743186940}
   - component: {fileID: 3733362587743186943}
+  - component: {fileID: 3697711594229007883}
+  - component: {fileID: 831546663912690479}
   m_Layer: 0
-  m_Name: Wall Temp
+  m_Name: Wall TempLibby
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +91,7 @@ BoxCollider:
   m_GameObject: {fileID: 3733362587743186933}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -120,3 +122,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
   wasHit: 0
+--- !u!114 &3697711594229007883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733362587743186933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9c64bb30fea10498619880af2cbab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &831546663912690479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3733362587743186933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb4b4fe3b3782e43a7833528f96ddbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

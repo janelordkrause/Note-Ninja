@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,30 +112,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &40353091 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
-    type: 3}
-  m_PrefabInstance: {fileID: 260619848}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &40353098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40353091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50d3befdc124c40f7bf8051a191c6b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Slices: {fileID: 2460982513608418481, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
-  saber: {fileID: 0}
-  world: {fileID: 0}
-  lightScript: {fileID: 0}
-  tag: 
-  head: {fileID: 0}
 --- !u!1001 &177345336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,12 +261,12 @@ PrefabInstance:
     - target: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
       propertyPath: m_Name
-      value: beatsabercube
+      value: ToSongs
       objectReference: {fileID: 0}
     - target: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
       propertyPath: m_TagString
-      value: SongMenu
+      value: Background Update
       objectReference: {fileID: 0}
     - target: {fileID: 41878289046472543, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
@@ -472,7 +448,7 @@ PrefabInstance:
     - target: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
       propertyPath: m_Name
-      value: beatsabercube (1)
+      value: SurpriseMe
       objectReference: {fileID: 0}
     - target: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
@@ -482,7 +458,7 @@ PrefabInstance:
     - target: {fileID: 41878289046472543, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 41878289046472513, guid: f204c4b1b7ec64018aeb3bae42bcd876, type: 3}
@@ -1575,7 +1551,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570469793}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50d3befdc124c40f7bf8051a191c6b14, type: 3}
   m_Name: 
@@ -1586,6 +1562,18 @@ MonoBehaviour:
   lightScript: {fileID: 0}
   tag: 
   head: {fileID: 0}
+--- !u!114 &1570469801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570469793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da978d4a1aa34eb7a473a508a83eb0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1907251122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,7 +1723,7 @@ PrefabInstance:
     - target: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
       propertyPath: m_Name
-      value: beatsabercube (2)
+      value: Quit
       objectReference: {fileID: 0}
     - target: {fileID: 41878289046472543, guid: f204c4b1b7ec64018aeb3bae42bcd876,
         type: 3}
