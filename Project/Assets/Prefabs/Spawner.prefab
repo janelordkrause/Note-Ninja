@@ -44,5 +44,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   block: {fileID: 41878289046472541, guid: f204c4b1b7ec64018aeb3bae42bcd876, type: 3}
-  start: 0
+  wall: {fileID: 7127419563828457814, guid: 8dc691288120a4f65bda44e7e03f169b, type: 3}
+  bomb: {fileID: 4875788575620416264, guid: af091aecbaac94050b74c450c1fd82e9, type: 3}
   beat: 1
+  music: {fileID: 0}
+  txt: {fileID: 0}
+  score: 0
+  health: 0
+  wasHit: 0
