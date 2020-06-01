@@ -15,6 +15,7 @@ public class SlicingMenu : MonoBehaviour
     public Lighting lightScript;
     public string tag; 
     public GameObject head;
+    public Renderer rend; 
 
     //always called before start function
     void Awake()
@@ -23,7 +24,7 @@ public class SlicingMenu : MonoBehaviour
         saberSplit = saber.GetComponent<SaberSplit>(); //connects to script with info about saber movements
         world = GameObject.FindGameObjectWithTag("world");
         lightScript = world.GetComponent<Lighting>();
-
+        rend = GetComponent<Renderer>(); 
         head = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
@@ -47,10 +48,13 @@ public class SlicingMenu : MonoBehaviour
             //Debug.Log(saberSplit.rightDirection);
             if (checkBlockDirection() == true) //checks to make sure saber is moving in the right direction before actually cutting 
             {
-                Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
+                Instantiate(Slices, transform.position, transform.rotation); 
+                //instantiates new split block object, , transform.position, transform.rotation
                 //lightScript.changeBackground();
-                gameObject.SetActive(false); 
-                tryScene();
+                transform.localScale = new Vector3(0,0,0);
+                StartCoroutine(timeDelay());
+
+                //gameObject.SetActive(false); 
                 //Destroy(gameObject); //destroys normal cube
 
             }
@@ -59,7 +63,7 @@ public class SlicingMenu : MonoBehaviour
 
     void tryScene()
     {
-        Debug.Log("Hello"); 
+        //Debug.Log("Hello"); 
         tag = gameObject.tag;
                 
                 try {
@@ -94,5 +98,10 @@ public class SlicingMenu : MonoBehaviour
             return false; 
         }
         
+    }
+
+    IEnumerator timeDelay() {
+        yield return new WaitForSeconds(1);
+        tryScene();
     }
 }
