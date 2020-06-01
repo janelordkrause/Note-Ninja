@@ -47,13 +47,17 @@ public class ToMenu : MonoBehaviour
             Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
 gameObject.SetActive(false);
 
-            SceneManager.LoadScene(0);
+            Invoke("backToMenu", 2.0f);
            // Debug.Log("back to menu");
             
         }
 
 
     }
+        void backToMenu(){
+SceneManager.LoadScene(0);
+
+ }
 
 
     

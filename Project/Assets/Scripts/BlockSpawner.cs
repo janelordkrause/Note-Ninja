@@ -160,8 +160,15 @@ public class BlockSpawner : MonoBehaviour
             StopCoroutine(spawns);
             music.Stop();
             PlayerPrefs.SetInt("Score", score);
-            SceneManager.LoadScene(3);
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            
+            if (health == 0)
+            {
+                SceneManager.LoadScene(4);
+            }
+            else
+            {
+                SceneManager.LoadScene(3);
+            }
         }
     }
 
@@ -229,7 +236,11 @@ public class BlockSpawner : MonoBehaviour
     public void Hit()
     {
         score+=pointsPerHit;
-        if (health != 100)
+        if (health*1.1 >= 100)
+        {
+            health = 100;
+        }
+        else
         {
             double hithealth = health*1.1;
             health=(int) hithealth;
@@ -245,8 +256,8 @@ public class BlockSpawner : MonoBehaviour
         }
         else
         {
-            double misshealth = health*0.70;
-            health= (int) misshealth;
+            // double misshealth = health*0.70;
+            // health= (int) misshealth;
         }
     }
 }

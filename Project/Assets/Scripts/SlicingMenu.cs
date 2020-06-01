@@ -49,7 +49,7 @@ public class SlicingMenu : MonoBehaviour
             {
                 Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 //lightScript.changeBackground();
-                Destroy(gameObject); //destroys normal cube
+                gameObject.SetActive(false); 
                 tryScene();
                 //Destroy(gameObject); //destroys normal cube
 
@@ -59,12 +59,13 @@ public class SlicingMenu : MonoBehaviour
 
     void tryScene()
     {
-        Debug.Log("Hello");
-        tag = gameObject.tag; 
+        Debug.Log("Hello"); 
+        tag = gameObject.tag;
                 
                 try {
-                    //Invoke("loadScene", 2);
+                    // Invoke("getScene", 2);
                     SceneManager.LoadScene(tag);
+                   
                 } catch (FileNotFoundException e) {
                     #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false; 
@@ -73,6 +74,7 @@ public class SlicingMenu : MonoBehaviour
                     #endif
                 }
     }
+
 
     void destroyGameObject()
     {
