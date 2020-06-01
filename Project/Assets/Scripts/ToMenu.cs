@@ -47,8 +47,8 @@ public class ToMenu : MonoBehaviour
             Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
 gameObject.SetActive(false);
 
-            // SceneManager.LoadScene(0);
-            Debug.Log("back to menu");
+            SceneManager.LoadScene(0);
+           // Debug.Log("back to menu");
             
         }
 

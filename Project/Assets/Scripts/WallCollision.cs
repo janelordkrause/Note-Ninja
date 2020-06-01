@@ -47,7 +47,7 @@ public class WallCollision : MonoBehaviour
     {
     	if (timeHit > 1.0f) //if you have been touching the wall for 1+ seconds
     	{
-    		SceneManager.LoadScene(1); // loads you lose page
+    		SceneManager.LoadScene(4); // loads you lose page
     	}
     }
 }

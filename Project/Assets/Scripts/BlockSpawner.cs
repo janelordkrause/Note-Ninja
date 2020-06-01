@@ -45,8 +45,9 @@ public class BlockSpawner : MonoBehaviour
     public int health;
     public bool wasHit;
 
-
-
+    public bool songReady;
+    public GameObject entertainer; //gameobjects of songs
+    public GameObject crabrave;
     
     void Start()
     {
@@ -58,11 +59,40 @@ public class BlockSpawner : MonoBehaviour
         
         health = 50;
         pointsPerHit = 100;
+
+        songReady = false;
+    }
+
+    void checkForSong()
+    {
+        if (entertainer.GetComponent<getSong>().nameOfSong != null) //checks to see if user has selected song
+        {
+            music = entertainer.GetComponent<AudioSource>();
+            entertainer.GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child").GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child2").GetComponent<Renderer>().enabled = false;
+            crabrave.GetComponent<Renderer>().enabled = false;
+
+            songReady = true;
+
+        }
+        else if (crabrave.GetComponent<getSong>().nameOfSong != null)
+        {
+            music = crabrave.GetComponent<AudioSource>();
+            crabrave.GetComponent<Renderer>().enabled = false;
+            entertainer.GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child").GetComponent<Renderer>().enabled = false;
+            GameObject.FindGameObjectWithTag("child2").GetComponent<Renderer>().enabled = false;
+
+            songReady = true;
+        }
     }
 
     void Update()
     {
-        if (startSpawn == false) //if spawning hasn't started yet
+        checkForSong();
+
+        if (startSpawn == false && songReady == true) //if spawning hasn't started yet
         {
 			music.Play();
 
@@ -82,7 +112,7 @@ public class BlockSpawner : MonoBehaviour
             StopCoroutine(spawns);
             music.Stop();
             PlayerPrefs.SetInt("Score", score);
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
@@ -175,7 +205,7 @@ public class BlockSpawner : MonoBehaviour
         {
             StopCoroutine(spawns);
             music.Stop();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(4);
         }
         else
         {

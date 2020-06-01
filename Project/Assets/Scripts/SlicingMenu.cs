@@ -48,10 +48,22 @@ public class SlicingMenu : MonoBehaviour
             if (checkBlockDirection() == true) //checks to make sure saber is moving in the right direction before actually cutting 
             {
                 Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
-                Destroy(gameObject); //destroys normal cube
                 //lightScript.changeBackground();
-                tag = gameObject.tag; 
+                Destroy(gameObject); //destroys normal cube
+                tryScene();
+                //Destroy(gameObject); //destroys normal cube
+
+            }
+        }
+    }
+
+    void tryScene()
+    {
+        Debug.Log("Hello");
+        tag = gameObject.tag; 
+                
                 try {
+                    //Invoke("loadScene", 2);
                     SceneManager.LoadScene(tag);
                 } catch (FileNotFoundException e) {
                     #if UNITY_EDITOR
@@ -60,9 +72,6 @@ public class SlicingMenu : MonoBehaviour
                         Application.Quit();
                     #endif
                 }
-
-            }
-        }
     }
 
     void destroyGameObject()

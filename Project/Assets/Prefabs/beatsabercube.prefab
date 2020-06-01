@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 41878289046472540}
   m_Layer: 0
   m_Name: beatsabercube
-  m_TagString: down
+  m_TagString: up
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 64
@@ -126,6 +126,8 @@ MonoBehaviour:
   head: {fileID: 0}
   spawn: {fileID: 0}
   spawnScript: {fileID: 0}
+  blockHit: 0
+  woosh: {fileID: 0}
 --- !u!54 &41878289046472540
 Rigidbody:
   m_ObjectHideFlags: 0

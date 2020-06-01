@@ -43,6 +43,6 @@ public class hitBomb : MonoBehaviour
 
     void loadYouLose()
     {
-    	SceneManager.LoadScene(1); // loads you lose page
+    	SceneManager.LoadScene(4); // loads you lose page
     }
 }
