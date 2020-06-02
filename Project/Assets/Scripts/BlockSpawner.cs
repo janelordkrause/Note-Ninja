@@ -181,7 +181,7 @@ public class BlockSpawner : MonoBehaviour
 
             while ((songFileLine = reader.ReadLine()) != null) //makes sure next line is not null (reads each line)
             {
-                Debug.Log(songFileLine);
+                //Debug.Log(songFileLine);
                 string[] blockInfo = songFileLine.Split(' '); //puts the info in the line into an array
 
                 //every line will have position info
@@ -256,8 +256,8 @@ public class BlockSpawner : MonoBehaviour
         }
         else
         {
-             double misshealth = health*0.70;
-             health= (int) misshealth;
+            double misshealth = health*0.70;
+            health= (int) misshealth;
         }
     }
 }
