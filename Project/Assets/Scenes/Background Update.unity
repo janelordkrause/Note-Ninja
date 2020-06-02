@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfSong: 
-  Slices: {fileID: 3781051698007171213, guid: 2bb39772649c14cd98a9e7708926b53d, type: 3}
+  Slices: {fileID: 2460982513608418481, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
   saber: {fileID: 0}
   world: {fileID: 0}
   lightScript: {fileID: 0}
@@ -2776,7 +2776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameOfSong: 
-  Slices: {fileID: 3781051698007171213, guid: 2bb39772649c14cd98a9e7708926b53d, type: 3}
+  Slices: {fileID: 2460982513608418481, guid: 6d64729d3664e4bb784cf008bb42dd77, type: 3}
   saber: {fileID: 0}
   world: {fileID: 0}
   lightScript: {fileID: 0}

@@ -52,7 +52,11 @@ public class getSong : MonoBehaviour
             {
                 //Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
                 //lightScript.changeBackground();
-                nameOfSong = gameObject.tag;
+                Instantiate(Slices, transform.position, transform.rotation); //instantiates new split block object, , transform.position, transform.rotation
+
+                transform.localScale = new Vector3(0,0,0);
+                StartCoroutine(timeDelay());
+
                 //Destroy(gameObject); //destroys normal cube
 
             }
@@ -77,5 +81,9 @@ public class getSong : MonoBehaviour
             return false; 
         }
         
+    }
+    IEnumerator timeDelay() {
+        yield return new WaitForSeconds(1);
+        nameOfSong = gameObject.tag;
     }
 }
